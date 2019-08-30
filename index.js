@@ -13,16 +13,18 @@ app.get('/', (req, res) => {
 
 //controllers
 const CityController = require('./controllers/city')
+const UserController = require('./controllers/user')
 
 app.group("/api/v1", (router) => {
 
-    //todos API
+    //City API
     router.get('/city', CityController.index); 
     router.get('/city/:id', CityController.show); 
     router.post('/city/:id', CityController.store);
     router.patch('/city/:id', CityController.update)
     router.delete('/city/:id', CityController.delete)
     //another APIs goes here
+    router.get('/user', UserController.index); 
 })
 
 app.listen(process.env.PORT || 5000, () => {

@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     telp: DataTypes.STRING
   }, {});
   user.associate = function(models) {
-    // associations can be defined here
+    user.hasMany(models.city, {
+      foreignKey: 'createdBy'
+    })
   };
   return user;
 };

@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   city.associate = function(models) {
     city.belongsTo(models.user, {
-      foreignKey: 'createdBy'
+      foreignKey: 'createdBy',
     })
   };
   return city;

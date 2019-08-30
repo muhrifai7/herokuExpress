@@ -1,7 +1,7 @@
 const City = require('../models').city
 
 exports.index = (req, res) => {
-    City.findAll().then(users=>res.send(users))
+    City.findAll().then(cities=>res.send(cities))
 }
 
 exports.show = (req, res) => {
@@ -53,7 +53,7 @@ exports.delete = (req, res) => {
                 })
             }
             city.destroy()
-                .then(() => res.status(204).send({
+                .then(() => res.status(200).send({
                     message: 'City deleted!'
                 }))
                 .catch(error => res.status(400).send(error))
